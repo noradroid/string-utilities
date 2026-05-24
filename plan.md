@@ -43,5 +43,11 @@
 - Inputs: min chars (number, default 32, min 8), include numbers (checkbox)
 - Output: result display (monospace, break-all), char count, copy button with "Copied!" flash
 
-### Phase 7 — Type-check [ ]
+### Phase 7 — Type-check [x]
 - `npx tsc --noEmit` — fix any errors
+
+### Phase 8 — Text Counter [x]
+- src/features/text-counter/countTextStats.ts — pure function returning chars, charsNoSpaces, words, lines
+- src/features/text-counter/TextCounter.tsx — textarea + live stat grid
+- AppLayout: added text-counter to UtilityId and NAV_ITEMS
+- App.tsx: wired TextCounter into ActiveFeature

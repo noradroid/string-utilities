@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { AppLayout, type UtilityId } from '@/components/AppLayout'
 import { StringGenerator } from '@/features/string-generator/StringGenerator'
+import { TextCounter } from '@/features/text-counter/TextCounter'
 
 function ActiveFeature({ id }: { id: UtilityId }) {
   if (id === 'string-generator') return <StringGenerator />
+  if (id === 'text-counter') return <TextCounter />
   return null
 }
 

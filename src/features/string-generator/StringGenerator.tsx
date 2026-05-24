@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { FeatureCard } from '@/components/FeatureCard'
 import { wordsDashSeparatedWithMinLength } from './wordsDashSeparatedWithMinLength'
 
 export function StringGenerator() {
@@ -30,19 +30,12 @@ export function StringGenerator() {
   }
 
   return (
-    <div className="max-w-xl">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Wand2 className="size-5" />
-            String Generator
-          </CardTitle>
-          <CardDescription>
-            Generate a dash-separated string of valid words meeting a minimum character length.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-5">
-          <div className="flex flex-col gap-1.5">
+    <FeatureCard
+      icon={<Wand2 className="size-5" />}
+      title="String Generator"
+      description="Generate a dash-separated string of valid words meeting a minimum character length."
+    >
+<div className="flex flex-col gap-1.5">
             <Label htmlFor="min-chars">Minimum characters</Label>
             <Input
               id="min-chars"
@@ -82,8 +75,6 @@ export function StringGenerator() {
               </div>
             </div>
           )}
-        </CardContent>
-      </Card>
-    </div>
+    </FeatureCard>
   )
 }

@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import { ChevronLeft, ChevronRight, Menu, Moon, Sun, Wand2 } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Menu, Moon, Sun, Type, Wand2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { Separator } from '@/components/ui/separator'
 import { useTheme } from '@/components/ThemeProvider'
 
-export type UtilityId = 'string-generator'
+export type UtilityId = 'string-generator' | 'text-counter'
 
 const NAV_ITEMS: { id: UtilityId; label: string; icon: React.ReactNode }[] = [
   { id: 'string-generator', label: 'String Generator', icon: <Wand2 className="size-4 shrink-0" /> },
+  { id: 'text-counter',     label: 'Text Counter',     icon: <Type  className="size-4 shrink-0" /> },
 ]
 
 interface Props {
