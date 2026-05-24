@@ -1,0 +1,85 @@
+import { useState } from 'react'
+import { Check, Copy, Wand2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { wordsDashSeparatedWithMinLength } from './wordsDashSeparatedWithMinLength'
+
+export function StringGenerator() {
+  const [minChars, setMinChars] = useState(32)
+  const [includeNumbers, setIncludeNumbers] = useState(false)
+  const [result, setResult] = useState('')
+  const [copied, setCopied] = useState(false)
+
+  function generate() {
+    setResult(wordsDashSeparatedWithMinLength(minChars, includeNumbers))
+    setCopied(false)
+  }
+
+  async function copy() {
+    if (!result) return
+    await navigator.clipboard.writeText(result)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <div className="max-w-xl">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Wand2 className="size-5" />
+            String Generator
+          </CardTitle>
+          <CardDescription>
+            Generate a dash-separated string of valid words meeting a minimum character length.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-5">
+          <div className="flex flex-col gap-1.5">
+            <Label htmlFor="min-chars">Minimum characters</Label>
+            <Input
+              id="min-chars"
+              type="number"
+              min={8}
+              max={500}
+              value={minChars}
+              onChange={e => setMinChars(Math.max(8, Number(e.target.value)))}
+              className="w-32"
+            />
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Checkbox
+              id="include-numbers"
+              checked={includeNumbers}
+              onCheckedChange={v => setIncludeNumbers(v === true)}
+            />
+            <Label htmlFor="include-numbers" className="cursor-pointer">
+              Include numbers
+            </Label>
+          </div>
+
+          <Button onClick={generate} className="self-start">
+            Generate
+          </Button>
+
+          {result && (
+            <div className="rounded-lg border border-border bg-muted/40 p-4">
+              <p className="font-mono text-sm break-all leading-relaxed">{result}</p>
+              <div className="flex items-center justify-between mt-3">
+                <span className="text-xs text-muted-foreground">{result.length} characters</span>
+                <Button variant="outline" size="sm" onClick={copy} className="gap-1.5">
+                  {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+                  {copied ? 'Copied' : 'Copy'}
+                </Button>
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
