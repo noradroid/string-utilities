@@ -4,7 +4,7 @@ function randomWord(): string {
   return ALL_WORDS[Math.floor(Math.random() * ALL_WORDS.length)]
 }
 
-export function wordsDashSeparatedWithMinLength(minChars: number, includeNumbers: boolean): string {
+export function generatePassphrase(minChars: number, includeNumbers: boolean): string {
   const num = includeNumbers ? String(Math.floor(Math.random() * 90) + 10) : null
   // Subtract the number's contribution (its length + 1 dash) so the words loop
   // targets a length that leaves exactly the right gap for the number.

@@ -5,16 +5,16 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { FeatureCard } from '@/components/FeatureCard'
-import { wordsDashSeparatedWithMinLength } from './wordsDashSeparatedWithMinLength'
+import { generatePassphrase } from './generatePassphrase'
 
-export function StringGenerator() {
+export function PassphraseGenerator() {
   const [minChars, setMinChars] = useState(32)
   const [includeNumbers, setIncludeNumbers] = useState(false)
   const [result, setResult] = useState('')
   const [copied, setCopied] = useState(false)
 
   function generate() {
-    setResult(wordsDashSeparatedWithMinLength(minChars, includeNumbers))
+    setResult(generatePassphrase(minChars, includeNumbers))
     setCopied(false)
   }
 
@@ -32,8 +32,8 @@ export function StringGenerator() {
   return (
     <FeatureCard
       icon={<Wand2 className="size-5" />}
-      title="String Generator"
-      description="Generate a dash-separated string of valid words meeting a minimum character length."
+      title="Passphrase Generator"
+      description="Generate a dash-separated passphrase of random words meeting a minimum character length."
     >
 <div className="flex flex-col gap-1.5">
             <Label htmlFor="min-chars">Minimum characters</Label>

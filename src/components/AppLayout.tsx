@@ -5,10 +5,10 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { Separator } from '@/components/ui/separator'
 import { useTheme } from '@/components/ThemeProvider'
 
-export type UtilityId = 'string-generator' | 'text-counter'
+export type UtilityId = 'passphrase-generator' | 'text-counter'
 
 const NAV_ITEMS: { id: UtilityId; label: string; icon: React.ReactNode }[] = [
-  { id: 'string-generator', label: 'String Generator', icon: <Wand2 className="size-4 shrink-0" /> },
+  { id: 'passphrase-generator', label: 'Passphrase Generator', icon: <Wand2 className="size-4 shrink-0" /> },
   { id: 'text-counter',     label: 'Text Counter',     icon: <Type  className="size-4 shrink-0" /> },
 ]
 
@@ -78,7 +78,7 @@ export function AppLayout({ active, onSelect, children }: Props) {
           'flex items-center border-b border-border h-11 shrink-0',
           collapsed ? 'justify-center px-2' : 'justify-between px-3',
         ].join(' ')}>
-          {!collapsed && <span className="font-semibold text-sm tracking-tight">Utilities</span>}
+          {!collapsed && <span className="font-semibold text-sm tracking-tight">Stringhetti</span>}
           {!collapsed && <ThemeToggle />}
           {collapsed && <ThemeToggle />}
         </div>
@@ -105,7 +105,7 @@ export function AppLayout({ active, onSelect, children }: Props) {
       {/* Mobile top bar + content */}
       <div className="flex flex-col flex-1 min-w-0">
         <header className="flex md:hidden items-center justify-between px-4 py-3 border-b border-border shrink-0">
-          <span className="font-semibold text-sm tracking-tight">Utilities</span>
+          <span className="font-semibold text-sm tracking-tight">Stringhetti</span>
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
@@ -114,7 +114,7 @@ export function AppLayout({ active, onSelect, children }: Props) {
               </SheetTrigger>
               <SheetContent side="left" className="w-56 p-0">
                 <SheetHeader className="px-4 py-3 border-b border-border">
-                  <SheetTitle className="text-sm font-semibold">Utilities</SheetTitle>
+                  <SheetTitle className="text-sm font-semibold">Stringhetti</SheetTitle>
                 </SheetHeader>
                 <Separator />
                 <NavLinks active={active} onSelect={onSelect} onNavigate={() => setDrawerOpen(false)} />
