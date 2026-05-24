@@ -2,8 +2,8 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { z } from 'zod'
-import { generatePassphrase } from '../src/features/passphrase-generator/generatePassphrase'
-import { countTextStats } from '../src/features/text-counter/countTextStats'
+import { generatePassphrase } from '../src/features/passphrase-generator/generatePassphrase.js'
+import { countTextStats } from '../src/features/text-counter/countTextStats.js'
 
 function buildServer() {
   const server = new McpServer({ name: 'stringhetti', version: '0.0.1' })

@@ -1,4 +1,4 @@
-import { ALL_WORDS } from './wordList'
+import { ALL_WORDS } from './wordList.js'
 
 function randomWord(): string {
   return ALL_WORDS[Math.floor(Math.random() * ALL_WORDS.length)]
