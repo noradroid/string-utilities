@@ -20,9 +20,13 @@ export function StringGenerator() {
 
   async function copy() {
     if (!result) return
-    await navigator.clipboard.writeText(result)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    try {
+      await navigator.clipboard.writeText(result)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // clipboard access denied or unavailable
+    }
   }
 
   return (
