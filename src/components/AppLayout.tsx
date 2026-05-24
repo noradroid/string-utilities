@@ -109,10 +109,8 @@ export function AppLayout({ active, onSelect, children }: Props) {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon-sm" aria-label="Open menu">
-                  <Menu className="size-4" />
-                </Button>
+              <SheetTrigger render={<Button variant="ghost" size="icon-sm" aria-label="Open menu" />}>
+                <Menu className="size-4" />
               </SheetTrigger>
               <SheetContent side="left" className="w-56 p-0">
                 <SheetHeader className="px-4 py-3 border-b border-border">
