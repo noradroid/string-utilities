@@ -1,0 +1,32 @@
+{
+  "name": "stringhetti",
+  "description": "String utility tools: passphrase generator and text counter",
+  "mcp_server_url": "https://stringhetti.vercel.app/api/mcp",
+  "transport": "streamable-http",
+  "tools": [
+    {
+      "name": "generate_passphrase",
+      "description": "Generate a dash-separated passphrase of random words with a minimum character length",
+      "parameters": {
+        "minChars": "integer — minimum character length of the passphrase (min 8)",
+        "includeNumbers": "boolean — whether to include a random 2-digit number"
+      }
+    },
+    {
+      "name": "count_text_stats",
+      "description": "Count characters, words, and lines in a piece of text",
+      "parameters": {
+        "text": "string — the text to analyze"
+      }
+    }
+  ],
+  "connect": {
+    "claude_desktop": {
+      "mcpServers": {
+        "stringhetti": {
+          "url": "https://stringhetti.vercel.app/api/mcp"
+        }
+      }
+    }
+  }
+}

@@ -4,10 +4,39 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stringhetti — string utility tools (passphrase generator, text counter) available as an MCP server at https://stringhetti.vercel.app/api/mcp" />
     <title>Stringhetti</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <noscript>
+      <h1>Stringhetti</h1>
+      <p>Stringhetti is a collection of string utility tools: a passphrase generator and a text counter (characters, words, lines).</p>
+
+      <h2>MCP Server</h2>
+      <p>Stringhetti exposes its tools as a remote MCP server using the Streamable HTTP transport.</p>
+      <p>MCP server URL: https://stringhetti.vercel.app/api/mcp</p>
+
+      <h3>Tools</h3>
+      <ul>
+        <li>generate_passphrase — generates a dash-separated passphrase of random words with a minimum character length and optional 2-digit number</li>
+        <li>count_text_stats — counts characters, characters excluding spaces, words, and lines in a piece of text</li>
+      </ul>
+
+      <h3>Connect via Claude Desktop or Claude Code</h3>
+      <p>Add the following to your mcpServers config:</p>
+      <pre>
+{
+  "mcpServers": {
+    "stringhetti": {
+      "url": "https://stringhetti.vercel.app/api/mcp"
+    }
+  }
+}
+      </pre>
+
+      <p>Discovery document: https://stringhetti.vercel.app/.well-known/mcp.json</p>
+    </noscript>
   </body>
 </html>
